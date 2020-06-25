@@ -1,0 +1,93 @@
+management.security.enabled: false
+logging:
+  level:
+    ROOT: ERROR
+    com.fsl: DEBUG
+    org.springframework: ERROR
+    org.springframework.boot.context.config: DEBUG
+    org.springframework.data: DEBUG
+pattern:
+  console: "%d %-5level %logger : %msg%n"
+
+server:
+  port: 8443
+  ssl:
+    key-store-type: PKCS12
+    key-store: classpath:fullstacklabs-ks.p12
+    key-store-password: changeit
+    key-alias: fullstacklabs
+security:
+  equire-ssl: true
+ebay:
+  scopes:
+    - buy.order.readonly
+    - buy.guest.order
+    - sell.marketing.readonly
+    - sell.marketing
+    - sell.inventory.readonly
+    - sell.inventory
+    - sell.account.readonly
+    - sell.account
+    - sell.fulfillment.readonly
+    - sell.fulfillment
+    - sell.analytics.readonly
+    - sell.marketplace.insights.readonly
+    - commerce.catalog.readonly
+    - buy.shopping.cart
+    - buy.offer.auction
+    - commerce.identity.readonly
+    - commerce.identity.email.readonly
+    - commerce.identity.phone.readonly
+    - commerce.identity.address.readonly
+    - commerce.identity.name.readonly
+    - commerce.identity.status.readonly
+    - sell.finances
+    - sell.item.draft
+    - sell.payment.dispute
+    - sell.item
+  scope-base-url: https://api.ebay.com/oauth/api_scope
+  additional-params: prompt=login
+  redirect-uri: ReactiveStax_Te-Reactive-fullst-haesgifc
+  auth-url: https://auth.sandbox.ebay.com/oauth2/authorize
+  auth-code-exchange-url: https://api.sandbox.ebay.com/identity/v1/oauth2/token
+  refresh-access-token-url: https://api.sandbox.ebay.com/identity/v1/oauth2/token
+  client-id: Reactive-fullstac-SBX-7c8e8a00c-c8a40e26
+  client-secret: SBX-c8e8a00c6f10-3c98-42cd-89dc-a83f
+---
+spring:
+  profiles: PROD
+ebay:
+  scopes:
+    - buy.order.readonly
+    - buy.guest.order
+    - sell.marketing.readonly
+    - sell.marketing
+    - sell.inventory.readonly
+    - sell.inventory
+    - sell.account.readonly
+    - sell.account
+    - sell.fulfillment.readonly
+    - sell.fulfillment
+    - sell.analytics.readonly
+    - sell.marketplace.insights.readonly
+    - commerce.catalog.readonly
+    - buy.shopping.cart
+    - buy.offer.auction
+    - commerce.identity.readonly
+    - commerce.identity.email.readonly
+    - commerce.identity.phone.readonly
+    - commerce.identity.address.readonly
+    - commerce.identity.name.readonly
+    - commerce.identity.status.readonly
+    - sell.finances
+    - sell.item.draft
+    - sell.payment.dispute
+    - sell.item
+  scope-base-url: https://api.ebay.com/oauth/api_scope
+  additional-params: prompt=login
+  redirect-uri: ReactiveStax_Te-Reactive-fullst-haesgifc
+  auth-url: https://auth.sandbox.ebay.com/oauth2/authorize
+  auth-code-exchange-url: https://api.sandbox.ebay.com/identity/v1/oauth2/token
+  refresh-access-token-url: https://api.sandbox.ebay.com/identity/v1/oauth2/token
+  client-id: Reactive-fullstac-PRD-dc8e89b76-f465d6e2
+  client-secret: PRD-c8e89b762b73-772c-4f3b-898f-a013

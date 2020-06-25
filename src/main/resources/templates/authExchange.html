@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div align="center">
+    <h1>Auth Code Exchange , Refresh Access Token !</h1>
+    <form action="#" th:action="@{/refresh-access-token}" th:object="${authExchange}" method="post">
+        <label>Access Token:</label>
+        <textarea th:field="*{accessToken}" rows="20" cols="120" readonly/><br/>
+
+        <label>Refresh Token:</label>
+        <input type="text" th:field="*{refreshToken}" size="120" readonly/><br/>
+        <br/>
+        <br/>
+        <button type="submit">Refresh Access Token</button>    
+    </form>
+</div>
+</body>
+</html>
