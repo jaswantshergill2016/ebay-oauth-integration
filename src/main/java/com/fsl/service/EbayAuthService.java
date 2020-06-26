@@ -39,8 +39,7 @@ public class EbayAuthService implements AuthService {
                 .field("redirect_uri", authConfig.getRedirectUri())
                 .asJson()
                 .ifFailure(response -> {
-                    System.out.println("Error Status" + response.getStatus());
-                    System.out.println("Error Body" + response.getBody().toString());
+                    log.error("Error Status {} , Response Body {} ", response.getStatus(), response.getBody().toString());
                     throw new RuntimeException("Cannot exchange auth code");
                 });
 
@@ -70,7 +69,7 @@ public class EbayAuthService implements AuthService {
                 .field("scope", authConfig.getApplicationScopes())
                 .asJson()
                 .ifFailure(response -> {
-                    log.error("Error Status {} , Response Body ", response.getStatus(), response.getBody().toString());
+                    log.error("Error Status {} , Response Body {} ", response.getStatus(), response.getBody().toString());
                     throw new RuntimeException("Cannot get access token");
                 });
         JSONObject jsonResponse = httpResponse.getBody().getObject();
